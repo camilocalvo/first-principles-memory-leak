@@ -1,6 +1,10 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import logo from "./logo.svg";
+import "./App.css";
+import { IonButton, IonText, setupIonicReact } from "@ionic/react";
+import "@ionic/react/css/core.css";
+
+setupIonicReact();
 
 function App() {
   return (
@@ -10,6 +14,8 @@ function App() {
         <p>
           Edit <code>src/App.tsx</code> and save to reload.
         </p>
+        <IonText>Ion text</IonText>
+        <IonButton>Ion button</IonButton>
         <a
           className="App-link"
           href="https://reactjs.org"
