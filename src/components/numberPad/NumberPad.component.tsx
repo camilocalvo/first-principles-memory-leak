@@ -1,6 +1,5 @@
-import { IonItem, IonModal } from "@ionic/react";
+import { IonContent, IonItem, IonList, IonModal } from "@ionic/react";
 import { useState } from "react";
-import NumberPadGrid from "./NumberPadGrid.component";
 
 const NumberPad: React.FC = () => {
   const [toggleModal, setToggleModal] = useState(false);
@@ -19,12 +18,19 @@ const NumberPad: React.FC = () => {
 
   return (
     <>
-      <IonModal
-        isOpen={toggleModal}
-        onDidDismiss={dismissNumberPad}
-        className="number-pad-modal"
-      >
-        <NumberPadGrid dismissNumberPad={dismissNumberPad} />
+      <IonModal isOpen={toggleModal} onClick={() => dismissNumberPad()}>
+        <IonContent>
+          <IonList>
+            <IonItem className="spinky-doo">To be detached</IonItem>
+          </IonList>
+        </IonContent>
+        {/* <IonButton className="fee-button">Fee</IonButton>
+        <IonButton className="fee-button">Fii</IonButton>
+        <IonButton className="fee-button">Foo</IonButton> */}
+
+        {/* <IonButton className="fee-button" onClick={dismissNumberPad}>
+          Close
+        </IonButton> */}
       </IonModal>
 
       {renderField()}
