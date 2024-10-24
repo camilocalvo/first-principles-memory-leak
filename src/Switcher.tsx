@@ -10,6 +10,7 @@ import {
   IonToggle,
 } from "@ionic/react";
 import { v4 as uuidv4 } from "uuid";
+import NumberPad from "./components/numberPad/NumberPad.component";
 
 type ListType = "first" | "second";
 
@@ -36,6 +37,9 @@ const Switcher = () => {
   const renderFirstGroup = () => {
     return (
       <>
+        {[...Array(5).keys()].map((index) => {
+          return <NumberPad key={index} />;
+        })}
         {[...Array(1000).keys()].map((index) => {
           return <>{renderItem(index, index.toString())}</>;
         })}
@@ -56,7 +60,10 @@ const Switcher = () => {
   return (
     <IonContent>
       <IonList style={{ marginTop: "32px" }}>
-        <IonButton onClick={() => toggleRenderedList()}>
+        <IonButton
+          onClick={() => toggleRenderedList()}
+          className="switcher-button"
+        >
           Switch 1000 Items
         </IonButton>
         {renderedList === "first" ? renderFirstGroup() : renderSecondGroup()}
